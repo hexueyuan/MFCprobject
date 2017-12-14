@@ -22,11 +22,4 @@ public:
 	string what() const { return name; }
 
 	double& Width() { return width; };
-
-//	Square&operator=(const Square&sq)
-//	{
-//		name = sq.name;
-//		width = sq.width;
-//		return *this;
-//	}
 };

@@ -12,7 +12,7 @@
 #include"squa.h"
 #include"trap.h"
 //{{ 外部说明添加到这里
-extern List list;
+extern List<QUADPTR> list;
 
 //}}
 

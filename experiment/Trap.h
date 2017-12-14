@@ -25,15 +25,6 @@ public:
 	double Width2()const { return width2; }
 	double Height()const { return height; }
 
-//	Trapezoid&operator=(const Trapezoid&tr)
-//	{
-//		name = tr.name;
-//		width1 = tr.width1;
-//		width2 = tr.width2;
-//		height = tr.height;
-//		return *this;
-//	}
-
 private:
 	double width1;
 	double width2;

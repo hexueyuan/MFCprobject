@@ -22,13 +22,5 @@ public:
 
 	double& Width(){ return width; }
 	double& Height(){ return height; }
-
-//	Rect&operator=(const Rect&re)
-//	{
-//		name = re.name;
-//		width = re.width;
-//		height = re.height;
-//		return *this;
-//	}
 };
 

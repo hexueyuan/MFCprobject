@@ -17,7 +17,7 @@
 #endif
 
 //{{ 全局说明添加在这里
-List list;
+List<QUADPTR> list;
 //}}
 void access(const QUADPTR& quad)
 {

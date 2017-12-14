@@ -25,13 +25,6 @@ public:
 	double& Width() { return width; }
 	double& Height() { return height; }
 
-//	Para&operator=(const Para&pa)
-//	{
-//		name = pa.name;
-//		width = pa.width;
-//		height = pa.height;
-//		return *this;
-//	}
 protected:
 	double width;
 	double height;

@@ -4,15 +4,16 @@
 #include<iostream>
 #include<string>
 
+template<class DATA> 
 class List
 {
 protected:
 	//定义链表节点数据结构
 	struct Node
 	{
-		QUADPTR data;
+		DATA data;
 		Node *next;
-		Node(QUADPTR d) :data(d) {}
+		Node(DATA d) :data(d) {}
 	} *head, *tail; 
 
 	//链表的长度
@@ -53,7 +54,7 @@ public:
 	size_t size() { return len; }
 
 	//尾部插入节点
-	void push_back(const QUADPTR quad)
+	void push_back(const DATA quad)
 	{
 		Node *p = new Node(quad);
 
@@ -104,13 +105,13 @@ public:
 	}
 
 	//重载+=操作符
-	List& operator+=(const QUADPTR& data)
+	List& operator+=(const DATA& data)
 	{
 		this->push_back(data);
 		return *this;
 	}
 
-	QUADPTR& operator[](size_t n)
+	DATA& operator[](size_t n)
 	{
 		Node *p = head;
 		//检查输入索引的值，对于大于链表长度的只返回链表尾
@@ -123,8 +124,8 @@ public:
 		return p->data;
 	}
 
-	//遍历函数???
-	void traverse(void(*f)(const QUADPTR&))
+	//遍历函数
+	void traverse(void(*f)(const DATA&))
 	{
 		Node *p = head;
 		int i = 1;
@@ -135,8 +136,67 @@ public:
 			p = p->next;				//请自行添加指针移动部分
 		}
 	}
+
+	Node* begin()
+	{
+		return head;
+	}
+
+	Node* end()
+	{
+		return tail->next;
+	}
+
+	public:
+		class Iterator
+		{
+		private:
+			Node* p;
+		public:
+			Iterator():p(nullptr) {}
+			Iterator(Iterator& i):p(i.p){}
+			~Iterator() {}
+
+			Iterator& operator=(Iterator& i)
+			{
+				p = i.p;
+				return *this;
+			}
+
+			Iterator& operator=(Node* n)
+			{
+				p = n;
+				return *this;
+			}
+
+			Iterator& operator++()
+			{
+				p = p->next;
+				return *this;
+			}
+
+			bool operator==(Iterator& i)
+			{
+				return (p == i.p);
+			}
+
+			bool operator!=(Iterator& i)
+			{
+				return !(*this!=i);
+			}
+
+			Iterator& operator+(int k)
+			{
+				while (k--)
+				{
+					p = p->next;
+				}
+				return *this;
+			}
+
+			Node& operator*()
+			{
+				return *p;
+			}
+		};
 };
-
-
-
-
